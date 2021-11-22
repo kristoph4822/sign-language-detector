@@ -17,7 +17,14 @@ def upload():
     img = base64.b64decode(request.data)
     img = cv2.imdecode(np.frombuffer(img, np.uint8), cv2.IMREAD_UNCHANGED)
     predictions = model.predict(img)
-    predictions = list(filter(lambda x: x.get("probability") > 0.5, predictions))
+    predictions = list(sorted(predictions, key=lambda x: x.get("probability"), reverse=True))
+    print(predictions)
+    if predictions and predictions[0].get("probability") > 0.4:
+        predictions = [predictions[0]]
+    else:
+        predictions = []
+    print(predictions)
+    print("\n\n")
     return jsonify({"predictions": predictions})
     
 if __name__ == '__main__':    

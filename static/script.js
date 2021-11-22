@@ -2,9 +2,9 @@
 function init() {
     function upload() {
         function draw(data) {
+            console.log(data);
             predictions = data.predictions;
-            console.log(data)
-            if (predictions != null) {
+            if (predictions.length > 0) {
                 predictions.forEach(prediction => {
                     console.log(prediction)
                     box = prediction.boundingBox;
@@ -19,8 +19,16 @@ function init() {
                         (box.left)*640+5,
                         (box.top+box.height)*480-5
                         );
+                    document.getElementById(prediction.tagName).play();
                 });
-            }  
+            } else {
+                ocontext.strokeRect(
+                        0,
+                        0,
+                        640,
+                        480
+                        );
+            }
         }
         context.drawImage(video, 0, 0, 320, 240);
         var data = canvas.toDataURL('image/jpeg').replace("data:image/jpeg;base64,", "");
