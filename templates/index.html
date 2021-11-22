@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/main.css">
+        <script type="text/javascript" src="/static/script.js"></script>
+    </head>
+    <body>
+        <div id="banner"><h1>Sign language detector</h1></div>
+        <div id="link" style="height: 0px;width: 0px;overflow:hidden;">
+            <a href="{{ url_for('upload') }}"></a>
+            <canvas id="canvas" class="canvas"  width="320" height="240" style="height: 0px; width: 0px; overflow:hidden"></canvas> 
+        </div>    
+        <div id="container">
+            <video id="video" class="video" width="640" height="480" autoplay></video> 
+            <canvas id="overlay" class="overlay" width="640" height="480"></canvas>     
+        </div>     
+    </body>
+</html> 

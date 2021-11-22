@@ -25,24 +25,18 @@ with tf.compat.v1.Session(graph=graph) as sess:
 with open(LABELS_FILENAME) as f:
     labels = [l.strip() for l in f.readlines()]
 
-
-cap = cv2.VideoCapture(0)
-
 width = 320
 height = 320
 
 #initialize()
 
-with tf.compat.v1.Session(graph=graph) as sess:
-    output_tensors = [sess.graph.get_tensor_by_name(n) for n in OUTPUT_TENSOR_NAMES]
-    while True:
-        ret, frame = cap.read()
+def predict(frame):
+    with tf.compat.v1.Session(graph=graph) as sess:
+        output_tensors = [sess.graph.get_tensor_by_name(n) for n in OUTPUT_TENSOR_NAMES]
         inp = cv2.resize(frame, (width, height))
         rgb = cv2.cvtColor(inp, cv2.COLOR_BGR2RGB)
-
         inputs = np.array(rgb, dtype=np.float32)[np.newaxis, :, :, :]
         outputs = sess.run(output_tensors, {INPUT_TENSOR_NAME: inputs})
-
         predictions = [{'probability': round(float(p[1]), 8),
                         'tagId': int(p[2]),
                         'tagName': labels[p[2]],
@@ -53,14 +47,4 @@ with tf.compat.v1.Session(graph=graph) as sess:
                             'height': round(float(p[0][3] - p[0][1]), 8)
                         }
                     } for p in zip(*outputs)]
-
-        print(predictions[0]['tagName'])
-
-        #Display the resulting frame
-        cv2.imshow('frame', frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-# When everything done, release the capture
-cap.release()
-cv2.destroyAllWindows()
+        return predictions

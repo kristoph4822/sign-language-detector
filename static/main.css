@@ -1,0 +1,30 @@
+body {
+    background: #333333;
+    color: #ccc;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+.container {
+    position: relative;
+    margin: 5%;
+    width: 80%;
+    height: 500px;
+    border: 1px solid red;
+}
+
+.video {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid #ccc;
+}
+  
+.overlay {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 10;
+    border: 1px solid #ccc;
+}
