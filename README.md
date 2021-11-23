@@ -1,12 +1,16 @@
 ﻿# Rozpoznawanie języka migowego
  ![obraz](https://user-images.githubusercontent.com/46055596/143024280-458464c5-ac0b-4a6e-a396-f8515c882faf.png)
 
+
+
  ## Opis projektu
 Projekt zakłada stworzenie prostej aplikacji webowej, która przy pomocy obrazku z kamerki naszego komputera na bieżąco rozpoznaje znaki alfabetu amerykańskiego języka migowego (ASL). Na ekranie wyświetlany jest bounding box wraz z wynikiem predykcji. Dodatkowo, dana litera czytana jest na głos.
  
  Aplikacja znajduje zastosowanie przede wszystkim w samodzielnej nauce języka migowego. Może również posłużyć za bazę do budowy innych aplikacji, jak na przykład tłumaczenie języka migowego na żywo podczas telekonferencji.
  
  Projekt realizowany w ramach przedmiotu: **Wprowadzenie do aplikacji i rozwiązań opartych o Sztuczną Inteligencję i Microsoft Azure**.
+ 
+ 
  
 ## Funkcjonalności
  * Rozpoznawanie wszystkich znaków alfabetu amerykańskiego języka migowego poza J i Z, które nie są statyczne;
@@ -20,6 +24,9 @@ Projekt zakłada stworzenie prostej aplikacji webowej, która przy pomocy obrazk
  * Marcin Kotecki (https://github.com/MarcinKotecki)
 
  ## Architektura rozwiązania
+ ![obraz](https://user-images.githubusercontent.com/46055596/143025922-6540652b-9d5b-4400-8a31-c45ffe7bfd74.png)
+
+ 
  
  ## Technologie
  Model:
@@ -30,6 +37,8 @@ Aplikacja webowa:
  * Azure Web App
  * Flask
  * OpenCV
+ 
+ 
  
  ## Opis rozwiązania
  ### 1. Stworzenie modelu
