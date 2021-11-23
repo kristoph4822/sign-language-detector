@@ -62,7 +62,7 @@ Aplikacja dostępna jest pod adresem: https://sign-language-detector.azurewebsit
 5. W przeglądarce odtwarzany jest dźwięk odpowiadający wykrytemu znakowi.
 
  ## Demo działania
- https://www.youtube.com/watch?v=z0eb3DWDp6a
+ https://youtu.be/LQbSOJz7BPg
  
  ## Cheatsheet
  Zaleca się stosować znaki w podobny sposób jak na poniższej ilustracji:
