@@ -5,7 +5,7 @@ import base64
 import model
 
 app = Flask(__name__)
-PROBABILITY_TRESHOLD = 0.4
+PROBABILITY_TRESHOLD = 0.6
 
 @app.route('/')
 def index():
