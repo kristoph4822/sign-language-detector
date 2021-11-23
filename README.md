@@ -62,3 +62,11 @@ Aplikacja dostępna jest pod adresem: https://sign-language-detector.azurewebsit
 5. W przeglądarce odtwarzany jest dźwięk odpowiadający wykrytemu znakowi.
 
  ## Demo działania
+ https://www.youtube.com/watch?v=z0eb3DWDp6a
+ 
+ ## Cheatsheet
+ Zaleca się stosować znaki w podobny sposób jak na poniższej ilustracji:
+ 
+ ![obraz](https://user-images.githubusercontent.com/46055596/143035893-2d2d3080-0c9e-4e0e-9e2c-ed50f4617de1.png)
+
+Źródło: https://www.dummies.com/languages/american-sign-language/signing-for-dummies-cheat-sheet/
