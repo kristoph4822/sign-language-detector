@@ -53,5 +53,12 @@ Przy tworzeniu modelu użyto opcji szybkiego trenowania (Quick Training) oraz do
 
 ### 2. Stworzenie aplikacji webowej
 
- 
+Do stworzenia aplikacji webowej wykorzystany został framework Flask.
+Aplikacja dostępna jest pod adresem: https://sign-language-detector.azurewebsites.net/
+1. Strona internetowa wyświetla obraz z kamery użytkownika i co 2 sekundy wysyła pomniejszony obraz do backendu. 
+2. Na backendzie, wykorzystując stworzony wcześniej model, wykrywane są na obrazie znaki języka migowego. 
+3. Backend w odpowiedzi zwraca znak, lokalizację i pewność predykcji (jezeli nie został przekroczony minimalny próg pewności, zwracana jest pusta odpowiedź).
+4. W przeglądarce na obrazie z kamery dookoła wykrytego znaku rysowana jest ramka z podpisem.
+5. W przeglądarce odtwarzany jest dźwięk odpowiadający wykrytemu znakowi.
+
  ## Demo działania
