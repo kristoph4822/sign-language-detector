@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-MODEL_FILENAME = 'model.pb'
-LABELS_FILENAME = 'labels.txt'
+MODEL_FILENAME = 'model/model.pb'
+LABELS_FILENAME = 'model/labels.txt'
 
 INPUT_TENSOR_NAME = 'image_tensor:0'
 OUTPUT_TENSOR_NAMES = ['detected_boxes:0', 'detected_scores:0', 'detected_classes:0']

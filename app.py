@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, make_response, jsonify
 import cv2
 import numpy as np
-import datetime
-import requests as req
 import base64
 import model
 
 app = Flask(__name__)
+PROBABILITY_TRESHOLD = 0.4
 
 @app.route('/')
 def index():
@@ -19,7 +18,7 @@ def upload():
     predictions = model.predict(img)
     predictions = list(sorted(predictions, key=lambda x: x.get("probability"), reverse=True))
     print(predictions)
-    if predictions and predictions[0].get("probability") > 0.4:
+    if predictions and predictions[0].get("probability") > PROBABILITY_TRESHOLD:
         predictions = [predictions[0]]
     else:
         predictions = []
