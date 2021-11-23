@@ -1,24 +1,48 @@
-﻿# Custom Vision Export Object Detection Models
-This model is exported from [Custom Vision Service](https://customvision.ai)
+﻿# Rozpoznawanie języka migowego
+ ![obraz](https://user-images.githubusercontent.com/46055596/143024280-458464c5-ac0b-4a6e-a396-f8515c882faf.png)
 
-Please visit our [Sample scripts respository](https://github.com/Azure-Samples/customvision-export-samples).
+ ## Opis projektu
+Projekt zakłada stworzenie prostej aplikacji webowej, która przy pomocy obrazku z kamerki naszego komputera na bieżąco rozpoznaje znaki alfabetu amerykańskiego języka migowego (ASL). Na ekranie wyświetlany jest bounding box wraz z wynikiem predykcji. Dodatkowo, dana litera czytana jest na głos.
+ 
+ Aplikacja znajduje zastosowanie przede wszystkim w samodzielnej nauce języka migowego. Może również posłużyć za bazę do budowy innych aplikacji, jak na przykład tłumaczenie języka migowego na żywo podczas telekonferencji.
+ 
+ Projekt realizowany w ramach przedmiotu: **Wprowadzenie do aplikacji i rozwiązań opartych o Sztuczną Inteligencję i Microsoft Azure**.
+ 
+## Funkcjonalności
+ * Rozpoznawanie wszystkich znaków alfabetu amerykańskiego języka migowego poza J i Z, które nie są statyczne;
+ * Pobieranie klatki z obrazku kamerki komputera co dwie sekundy i zwracanie predykcji na jej podstawie;
+ * Wyświetlanie bounding boxu wraz z wynikiem predykcji i prawdopodobieństwem;
+ * W przypadku braku rozpoznania znaku (prawdopodobieństwo poniżej 0.5) wyświetlana jest czerwona ramka;
+ * Rozpoznana litera czytana jest na głos;
+ 
+ ## Nasz zespół
+ * Krzysztof Maciejewski (https://github.com/kristoph4822)
+ * Marcin Kotecki (https://github.com/MarcinKotecki)
 
-## Prerequisites
-(For TensorFlow Lite model) TensorFlow Lite 2.1 or newer
+ ## Architektura rozwiązania
+ 
+ ## Technologie
+ Model:
+ * Azure Custom Vision 
+ * Tensorflow
 
-## Input specification
-This model expects 320x320, 3-channel RGB images. Pixel values need to be in the range of [0-255].
+Aplikacja webowa:
+ * Azure Web App
+ * Flask
+ * OpenCV
+ 
+ ## Opis rozwiązania
+ ### 1. Stworzenie modelu
+ Model do rozpoznawania alfabetu języka migowego został wytrenowany przy użyciu Custom Vision. Do trenowania użytko trzech źródeł danych:
+ * American Sign Language Letters Dataset: https://public.roboflow.com/object-detection/american-sign-language-letters/1
+ * ASL Alphabet: https://www.kaggle.com/grassknoted/asl-alphabet
+ * Zdjęcia zrobione samodzielnie
 
-## Output specification
-There are three outputs from this model.
+Pierwszy dataset zawierał ok. 1700 zdjęć wraz z annotacjami w formacie Psacal VOC. Aby wgrać zdjęcia wraz z bounding boxami od razu do Custom Vision wykorzystano: https://github.com/ProjektCustomVisionKL/pascal-voc-to-custom-vision-uploader. Drugi dataset zawierał 87000 zdjęć bez annotacji. Do treningu wybrano po 20 losowych zdjęć z tego zbioru dla każdej litery i ręcznie otagowano je w Custom Vision. Łącznie do treningu użyto około 2500 zdjęć (średnio 104 zdjęcia na każdą literę).
 
-* detected_boxes
-The detected bounding boxes. Each bounding box is represented as [x1, y1, x2, y2] where (x1, y1) and (x2, y2) are the coordinates of box corners.
-* detected_scores
-Probability for each detected boxes.
-* detected_classes
-The class index for the detected boxes.
+Przy tworzeniu modelu użyto opcji szybkiego trenowania (Quick Training) oraz domeny typu Compact, aby móc wyeksportować model. Wyeksportowany model używany jest bezpośrednio w aplikacji webowej.
 
-# Reference
-* [Custom Vision Service documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/)
-* [Sample scripts](https://github.com/Azure-Samples/customvision-export-samples)
+### 2. Stworzenie aplikacji webowej
+
+ 
+ ## Demo działania
