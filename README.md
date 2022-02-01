@@ -39,7 +39,6 @@ Aplikacja webowa:
  * OpenCV
  
  
- 
  ## Opis rozwiązania
  ### 1. Stworzenie modelu
  Model do rozpoznawania alfabetu języka migowego został wytrenowany przy użyciu Custom Vision. Do trenowania użytko trzech źródeł danych:
